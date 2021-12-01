@@ -1,0 +1,340 @@
+/*Images de fond*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main>section {
+    height: 100vh;
+    text-align: center;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main>section:nth-of-type(1) {
+    background-image: url('../medias/images/dune-timothee-chalamet.jpg');
+}
+
+main>section:nth-of-type(2) {
+    background-image: url('../medias/images/dune-sharon-duncan-brewster.jpeg');
+}
+
+main>section:nth-of-type(3) {
+    background-image: url('../medias/images/Dune02.webp');
+}
+
+main>section:nth-of-type(4) {
+    background-image: url('../medias/images/dune-production_01.jpg');
+}
+
+main>section:nth-of-type(5) {
+    background-image: url('../medias/images/dune-timothee-chalamet-rebecca-ferguson.jpeg');
+}
+
+section {
+    scroll-snap-align: start;
+}
+
+html {
+    scroll-snap-type: y proximity;
+}
+
+/*Header*/
+header {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Logo Dune top left*/
+header>img {
+    height: 4vh;
+    width: auto;
+    padding-left: 1vw;
+    padding-top: 1vh;
+}
+
+/*Menu*/
+#navigationMenu li{	list-style:none;height:39px;padding:2px;width:40px;}
+#navigationMenu span{
+	/* Propri�t�s deu conteneur*/
+	width:0; left:38px; padding:0; position:absolute; overflow:hidden;
+	/* Propri�t�s du texte */
+	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+	font-size:18px;font-weight:bold;letter-spacing:0.6px;white-space:nowrap;line-height:39px;
+	/* Transition: */
+	-webkit-transition: 0.25s;
+	-moz-transition: 0.25s;
+	transition: 0.25s;
+}
+
+#navigationMenu a{background:url('../medias/images/navigation.jpg') no-repeat;height:39px;width:38px;display:block;position:relative;}
+/* Propi�t�s du survol */
+#navigationMenu a:hover span{ width:auto; padding:0 20px;overflow:visible; }
+#navigationMenu a:hover{text-decoration:none;
+/* Propri�t�s de l'ombre */
+	-moz-box-shadow:0 0 5px #9ddff5;
+	-webkit-box-shadow:0 0 5px #9ddff5;
+	box-shadow:0 0 5px #9ddff5;
+}
+
+/* le nom doit correspondre au navigationMenu.xxxxx */
+
+#navigationMenu .accueil {	background-position:0 0;}
+#navigationMenu .accueil:hover {	background-position:0 -39px;}
+#navigationMenu .accueil span{background-color:gray;color:white;text-shadow:1px 1px 0 gray;}
+
+#navigationMenu .film { background-position:-38px 0;}
+#navigationMenu .film:hover { background-position:-38px -39px;}
+#navigationMenu .film span{background-color:gray;color:white;text-shadow:1px 1px 0 gray;}
+
+#navigationMenu .persos { background-position:-76px 0;}
+#navigationMenu .persos:hover { background-position:-76px -39px;}
+#navigationMenu .persos span{background-color:gray;color:white;text-shadow:1px 1px 0 gray;}
+
+#navigationMenu .images { background-position:-114px 0;}
+#navigationMenu .images:hover{ background-position:-114px -39px;}
+#navigationMenu .images span{background-color:gray;color:white;text-shadow:1px 1px 0 gray;}
+
+#navigationMenu .map { background-position:-152px 0;}
+#navigationMenu .map:hover { background-position:-152px -39px;}
+#navigationMenu .map span{background-color:gray;color:white;text-shadow:1px 1px 0 gray;}
+
+a{
+    margin: 2vh;
+}
+
+/*Images qui servent de liens a droite*/
+header>section {
+    height: 100%;
+    width: 5%;
+    position: fixed;
+    right: 0.3vw;
+    z-index: 10;
+}
+
+header>section>img:nth-of-type(1) {
+    height: 5%;
+    margin-top: 3%;
+    justify-content: right;
+    position: fixed;
+    z-index: 10;
+}
+
+header>section>img:nth-of-type(2) {
+    height: 5%;
+    margin-top: 7%;
+    justify-content: right;
+    position: fixed;
+    z-index: 11;
+}
+
+header>section>img:nth-of-type(3) {
+    height: 5%;
+    margin-top: 35%;
+    justify-content: right;
+    position: fixed;
+    z-index: 12;
+}
+
+
+header>section>img:nth-of-type(4) {
+    height: 5%;
+    margin-top: 40%;
+    justify-content: right;
+    position: fixed;
+    z-index: 13;
+}
+
+
+header>section>img:nth-of-type(5) {
+    height: 5%;
+    margin-top: 45%;
+    justify-content: right;
+    position: fixed;
+    z-index: 100;
+}
+
+/*page 1*/
+.scroll {
+    position: fixed !important;
+    width: 35vw !important;
+    height: 20.5vw !important;
+    bottom: 40vh;
+}
+
+#video {
+    margin: 150px;
+}
+
+main>section:first-of-type>h1{
+    font-size: 10vh;
+    position: relative;
+    bottom: 10vh;
+}
+
+/*page2*/
+main>section:nth-of-type(2)>div {
+    background-color: rgba(145, 116, 116, 0.85);
+    height: 25vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 7vh;
+    margin-top: 52vh;
+}
+
+main>section:nth-of-type(2)>div {
+    column-rule-style: dotted;
+    columns: 3;
+    column-gap: 5vw;
+    text-align: justify;
+}
+
+main>section:nth-of-type(2)>img {
+    width: 30vw;
+    position: relative;
+    top: -60vh;
+    left: 15vw;
+}
+
+main>section:nth-of-type(2)>h1{
+    font-size: 5vh;
+    position: relative;
+    top: 50vh; right: 20vw;
+}
+
+/*caroussel page 3*/
+main>section:nth-of-type(3)>div:not(:nth-of-type(3)){
+    width: 30vw;
+    height: 60vh;
+    margin: auto;
+    position: relative;
+}
+
+main>section:nth-of-type(3)>div>img {
+    position: absolute;
+    top: 10vh;
+    left: 20vw;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+main>section:nth-of-type(3)>div>img:not(:first-of-type) {
+    display: none;
+}
+
+main>section:nth-of-type(3)>div:nth-of-type(2) {
+    text-align: center;
+    -top: 5vh;
+}
+
+main>section:nth-of-type(3)>div>span {
+    display: inline-block;
+    width: 1.5vw;
+    height: 1.5vw;
+    margin: 0 1vw;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    top: 10vh;
+    left: 20vw;
+}
+
+main>section:nth-of-type(3)>h1{
+    font-size: 5vh;
+    position: relative;
+    top: 50vh; right: 20vw;
+}
+
+main>section:nth-of-type(3)>div:nth-of-type(3)>p{
+    background-color: rgba(145, 116, 116, 0.85);
+    height: 18vh;
+    padding-left: 40vw;
+    padding-right: 70vw;
+    padding-top: 7.5vh;
+    margin-top: -70vh;
+    margin-left: -30vw;
+    font-size: 3vh;
+    /*position: absolute;*/
+}
+
+main>section:nth-of-type(3)>div:nth-of-type(3)>p:not(:first-of-type) {
+  display: none;
+}
+
+/*caroussel page 4*/
+main>section:nth-of-type(4)>h1 {
+    text-align: center;
+    font-size: 5vh;
+    position: relative;
+    top: 5vh;
+}
+
+main>section:nth-of-type(4)>div {
+    width: 70vw;
+    height: 60vh;
+    margin: auto;
+    position: relative;
+    top: 10vh;
+}
+
+main>section:nth-of-type(4)>div>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+main>section:nth-of-type(4)>div>img:not(:first-of-type) {
+    display: none;
+}
+
+main>section:nth-of-type(4)>div:nth-of-type(2) {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+main>section:nth-of-type(4)>div>span {
+    display: inline-block;
+    width: 2vw;
+    height: 2vw;
+    margin: 0 1vw;
+    border-radius: 50%;
+    background-color: rgb(102, 66, 0, 1);
+    cursor: pointer;
+}
+
+
+/*carte et bouton page 5*/
+#carte {
+    width: 50vw;
+    height: 50vh;
+    margin: auto;
+    position: relative;
+    top: 20vh;
+}
+
+#map>p {
+    text-align: center;
+    position: relative;
+    top: 25vh;
+}
+  
+#map>button {
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 25vh;
+}
+
+
+
+/*Footer*/
+

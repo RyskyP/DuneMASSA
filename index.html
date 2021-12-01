@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dune</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="medias/favicon/favicon-32x32.png">
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="">
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin="">
+    </script>
+    <script src="../Projetwebsite/kit_medias/cinema_fr.geojson"></script>
+</head>
+
+<body>
+    <header>
+        <img src="medias/poster/tt.png" alt="">
+        <div id="main">
+            <ul id="navigationMenu">
+                <li><a class="accueil" href="#accueil"><span>Accueil</span></a></li>
+                <li><a class="film" href="#film"><span>Film</span></a></li>
+                <li><a class="persos" href="#personnages"><span>Personnages</span></a></li>
+                <li><a class="images" href="#imgfilm"><span>Images</span></a></li>
+                <li><a class="map" href="#map"><span>Regarder le fim</span></a></li>
+            </ul>
+        </div>
+        <section>
+            <img src="medias/logos/wb_logo.svg" alt="logo " />
+            <img src="medias/logos/legendary_logo.svg" alt="logo " />
+            <img src="medias/logos/logo_twitter.svg" alt="logo " />
+            <img src="medias/logos/logo_instagram.svg" alt="logo " />
+            <img src="medias/logos/logo_facebook.svg" alt="logo " />
+        </section>
+    </header>
+    <main>
+        <section id="accueil">
+            <div>
+                <div id="video"></div>
+            </div>
+            <h1>Dans votre cinéma !</h1>
+        </section>
+        <section id="film">
+            <h1>A propos du film</h1>
+            <div>Dans un futur lointain de l'humanité, le duc Leto Atréides reçoit de l'Empereur le fief de la très
+                    profitable et très dangereuse planète désertique Arrakis. Également connue sous le nom de « Dune »,
+                    cette planète est la seule source de la substance la plus précieuse de l'Imperium, « l’Épice », une
+                    drogue qui prolonge la vie humaine, immunise contre les poisons et procure des facultés mentales
+                    surhumaines. L’Épice rend notamment possible la navigation interstellaire, base de toute l'économie
+                    impériale.
+
+                    Bien que Leto sache que cette opportunité est un piège complexe tendu par ses ennemis, il emmène
+                    avec
+                    lui sa concubine Bene Gesserit, dame Jessica, son jeune fils et héritier Paul et ses soldats les
+                    plus
+                    fiables sur Arrakis. Leto prend le contrôle de l'extraction d’Épice, rendue périlleuse par la
+                    présence
+                    de vers de sable géants qui attaquent toute source de vibrations. Mais, après une trahison amère,
+                    Paul
+                    et Jessica arrivent jusqu’aux Fremen, le peuple autochtone d'Arrakis qui vit dans le désert profond
+                    de
+                    la planète. Les Fremen sont dans l'attente du Mahdi, le messie qui suscitera le soulèvement et les
+                    libérera de l'oppression de l'Imperium.
+            </div>
+            <img src="medias/images/denis_villeneuve.webp" alt="image de denis">
+        </section>
+        <section id="personnages">
+            <h1>Personnages</h1>
+            <div id="imagespersos">
+                <img src="../Projetwebsite/medias/characters/chani.jpg" alt="chani">
+                <img src="../Projetwebsite/medias/characters/paul_atreides.jpg" alt="paulatreides">
+                <img src="../Projetwebsite/medias/characters/dr_wellington_yueh.jpg" alt="drwellington">
+                <img src="../Projetwebsite/medias/characters/duncan_idaho.jpg" alt="duncanidaho">
+            </div>
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div>
+                <p>Chani</p>
+                <p>Paul Atréides</p>
+                <p>Docteur Wellington</p>
+                <p>Duncan Idaho</p>
+            </div>
+        </section>
+        <section id="imgfilm">           
+            <h1>Images du Film</h1>
+            <div id="imagesfilm">
+                <img src="../Projetwebsite/medias/images/dune_production-16.jpg" alt="img1">
+                <img src="../Projetwebsite/medias/images/dune_production-14.jpg" alt="img2">
+                <img src="../Projetwebsite/medias/images/10.jpg" alt="img3">
+                <img src="../Projetwebsite/medias/images/02.jpg" alt="img4">
+            </div>
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+        <section id="map">
+            <div id="carte"></div>
+            <button>Localise moi !</button>
+            <!-- Contenu injecté ici -->
+            <p></p>
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <script>
+        let etatLecteur;
+
+        function lecteurPret(event) {
+            event.target.setVolume(50);
+        }
+
+        function changementLecteur(event) {
+            etatLecteur = event.data;
+        }
+
+        let lecteur;
+
+        function onYouTubeIframeAPIReady() {
+            lecteur = new YT.Player("video", {
+                height: "390",
+                width: "640",
+                videoId: "_H7CAgCahjk",
+                playerVars: {
+                    color: "white",
+                    controls: 1,
+                    autoplay: 1,
+                    cc_load_policy: 0,
+                    enablejsapi: 1,
+                    modestbranding: 1,
+                    rel: 0
+                },
+                events: {
+                    onReady: lecteurPret,
+                    onStateChange: changementLecteur
+                }
+            });
+        }
+        const hauteurVideo = $("#video").height();
+        const posYVideo = $("#video").offset().top;
+        const seuil = posYVideo + 0.75 * hauteurVideo;
+        $(window).scroll(function () {
+            const scroll = $(window).scrollTop();
+            $("#video").toggleClass(
+                "scroll",
+                etatLecteur === YT.PlayerState.PLAYING && scroll > seuil
+            );
+        });
+    </script>
+</body>
+<script src="js/script.js"></script>
+</html>
